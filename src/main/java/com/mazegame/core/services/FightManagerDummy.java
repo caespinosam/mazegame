@@ -29,6 +29,7 @@ public class FightManagerDummy implements IFightManager {
      */
     @Override
     public void fight(Hero hero, Enemy enemy) {
+      if (!hero.isDead() && !enemy.isDead()) {
         if (hero.getWeapon() != null) {
             hero.getWeapon().attack(enemy);
         }
@@ -45,6 +46,7 @@ public class FightManagerDummy implements IFightManager {
             }
 
         }
+      }
     }
 
     /**

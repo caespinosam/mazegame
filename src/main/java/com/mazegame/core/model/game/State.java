@@ -35,8 +35,10 @@ public class State {
             previousRoom = currentRoom;
             setCurrentRoom(nextRoom);
         }
+        else {
 
-        throw new InvalidMovementException("north.");
+          throw new InvalidMovementException("north.");
+        }
     }
 
     /**
@@ -51,8 +53,11 @@ public class State {
             previousRoom = currentRoom;
             setCurrentRoom(nextRoom);
         }
+        else {
+          throw new InvalidMovementException("west.");
+        }
 
-        throw new InvalidMovementException("west.");
+        
     }
 
     /**
@@ -67,8 +72,10 @@ public class State {
             previousRoom = currentRoom;
             setCurrentRoom(nextRoom);
         }
-
-        throw new InvalidMovementException("south.");
+        else {
+          throw new InvalidMovementException("south.");
+        }
+        
     }
 
     /**
@@ -83,8 +90,10 @@ public class State {
             previousRoom = currentRoom;
             setCurrentRoom(nextRoom);
         }
-
-        throw new InvalidMovementException("east");
+        else {
+          throw new InvalidMovementException("east.");
+        }
+       
     }
 
     /**

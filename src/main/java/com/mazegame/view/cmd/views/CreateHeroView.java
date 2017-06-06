@@ -13,7 +13,7 @@ import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.cmd.views.input.TextInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
-
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 /**
  * View to create a new hero.
  * @author Cesar 
@@ -26,7 +26,7 @@ public class CreateHeroView implements ICommandLineView {
     private static final int INITIAL_POISON_LITTERS = 3;
 
     public ICommandLineView show(Game game) {
-        PrintMessage.print("############## CREATE CHARACTER ##########################");
+        PrintMessage.print(getMessage(TITTLE_CREATE_CHARACTER));
         PrintMessage.print("");
         saveNewHero(game);
 
@@ -40,7 +40,7 @@ public class CreateHeroView implements ICommandLineView {
         newHero.setWeapon(weapon);
         try {
             game.savePlayer(newHero);
-            PrintMessage.print("New hero created " + newHero.getName());
+            PrintMessage.print(getMessage(NO_HERO_CREATED) + newHero.getName());
         } catch (PlayerAlreadyExistException paee) {
             PrintMessage.print(paee.getMessage());
         }
@@ -48,19 +48,19 @@ public class CreateHeroView implements ICommandLineView {
     }
 
     private String askName() {
-        IInputHandler<String> ti = new TextInputHandler("Enter your name: ");
+        IInputHandler<String> ti = new TextInputHandler(getMessage(MENU_ENTER_NAME));
         ti.show();
         return ti.getInput();
     }
 
     private IWeapon askWeapon(Game currentGame) {
 
-        Menu<IWeapon> weaponMenu = new Menu<>("Choose your favourite weapon: ");
-        MenuOption<IWeapon> opKnife = new MenuOption<>("1", "Knife", Knife.newInstance("My Knife"));
+        Menu<IWeapon> weaponMenu = new Menu<>(getMessage(TITTLE_CREATE_CHARACTER));
+        MenuOption<IWeapon> opKnife = new MenuOption<>("1", getMessage(MENU_KNIFE), Knife.newInstance("My Knife"));
         weaponMenu.addOption(opKnife);
-        MenuOption<IWeapon> opBow = new MenuOption<>("2", "Bow", Bow.newInstance("My bow", INITIAL_BOW_ARROWS));
+        MenuOption<IWeapon> opBow = new MenuOption<>("2", getMessage(MENU_BOW), Bow.newInstance("My bow", INITIAL_BOW_ARROWS));
         weaponMenu.addOption(opBow);
-        MenuOption<IWeapon> opPoison = new MenuOption<>("3", "Poison", Poison.newInstance("My poison", INITIAL_POISON_LITTERS));
+        MenuOption<IWeapon> opPoison = new MenuOption<>("3", getMessage(MENU_POISON), Poison.newInstance("My poison", INITIAL_POISON_LITTERS));
         weaponMenu.addOption(opPoison);
 
         IInputHandler<MenuOption<IWeapon>> inputHandler = new MenuInputHandler<>(weaponMenu);

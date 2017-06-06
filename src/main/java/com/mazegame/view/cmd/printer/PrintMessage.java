@@ -1,6 +1,7 @@
 package com.mazegame.view.cmd.printer;
 
 import java.io.IOException;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This class is used to print messages to the terminal.
@@ -8,7 +9,7 @@ import java.io.IOException;
  * @author Cesar
  *
  */
-public class PrintMessage {
+public final class PrintMessage {
 
     public static void print(String message) {
         System.out.println(message);
@@ -19,12 +20,12 @@ public class PrintMessage {
     }
 
     public static void pressEnterToContinue() {
-        System.out.println("Press Enter to continue...");
+        System.out.println(getMessage(PRESS_ENTER));
 
         try {
             System.in.read();
         } catch (IOException e) {
-            System.out.println("Error reading your input: " + e.getMessage());
+            System.out.println(getMessage(ERROR_READING_INPUT) + e.getMessage());
         }
     }
 

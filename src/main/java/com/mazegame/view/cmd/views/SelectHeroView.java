@@ -9,6 +9,7 @@ import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to select the player before starting the game.
@@ -20,18 +21,17 @@ public class SelectHeroView implements ICommandLineView {
     private PlayerPersistorInMemory characterManager = PlayerPersistorInMemory.getInstance();
 
     public ICommandLineView show(Game currentGame) {
-        PrintMessage.print("########################################");
-        PrintMessage.print("Select your character");
+        PrintMessage.print(getMessage(TITTLE_SELECT_CHARACTER));       
         PrintMessage.print("");
 
         ICommandLineView nextView;
         if (isPlayersEmpty()) {
-            PrintMessage.print("No characters created yet!. Please create a new one before playing. ");
+            PrintMessage.print(getMessage(ERROR_NO_CHARACTERS));
             nextView = MainMenuView.newInstance();
         } else {
             Hero mainCharacter = askHero();
             currentGame.setPlayer(mainCharacter);
-            PrintMessage.print("You have selected: " + mainCharacter.getName());
+            PrintMessage.print(getMessage(SELECTED_HERO) + mainCharacter.getName());
             nextView = RoomView.newInstance();
 
         }
@@ -42,7 +42,7 @@ public class SelectHeroView implements ICommandLineView {
     private Hero askHero() {
 
         Hero selectedHero = null;
-        Menu<Hero> characterMenu = new Menu<>("Choose the character you want to be");
+        Menu<Hero> characterMenu = new Menu<>(getMessage(MENU_SELECT_CHARACTER));
 
         int i = 1;
         Iterator<Hero> characters = characterManager.getPlayers();

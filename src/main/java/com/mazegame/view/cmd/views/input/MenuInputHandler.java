@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This input-handler displays a menu via command line and returns the selected option.
@@ -38,7 +39,7 @@ public class MenuInputHandler<T> implements IInputHandler<MenuOption<T>>{
             PrintMessage.print("\n> ");
             value = menu.getSelectedOption(scanner.next());
             if (value == null) {
-                PrintMessage.print("Invalid option! ");
+                PrintMessage.print(getMessage(ERROR_INVALID_OPTION));
             }
         }
     }

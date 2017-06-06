@@ -6,6 +6,7 @@ import com.mazegame.view.cmd.views.input.IInputHandler;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to show the main menu.
@@ -20,13 +21,13 @@ public class MainMenuView implements ICommandLineView {
 
     private ICommandLineView showHomeMenu(Game currentGame) {
 
-        PrintMessage.print("############## MAIN MENU ##########################");
-        Menu<ICommandLineView> homeMenu = new Menu<>("Please select an option:");
+        PrintMessage.print(getMessage(TITTLE_MAIN_MENU));
+        Menu<ICommandLineView> homeMenu = new Menu<>(getMessage(MENU_SELECT_OPTION));
 
-        MenuOption<ICommandLineView> optionCreateCh = new MenuOption<>("1", "Create a hero", CreateHeroView.newInstance());
+        MenuOption<ICommandLineView> optionCreateCh = new MenuOption<>("1", getMessage(MENU_CREATE_HERO), CreateHeroView.newInstance());
         homeMenu.addOption(optionCreateCh);
 
-        MenuOption<ICommandLineView> optionPlayNewG = new MenuOption<>("2", "Play new game", SelectHeroView.newInstance());
+        MenuOption<ICommandLineView> optionPlayNewG = new MenuOption<>("2", getMessage(MENU_PLAY_GAME), SelectHeroView.newInstance());
         homeMenu.addOption(optionPlayNewG);
 
         IInputHandler<MenuOption<ICommandLineView>> inputHandler = new MenuInputHandler<>(homeMenu);

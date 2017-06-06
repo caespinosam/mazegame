@@ -3,6 +3,7 @@ package com.mazegame.view.cmd.printer;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.game.Room;
 import com.mazegame.core.model.game.State;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This strategy prints the map as a basic table with no colors or effects.
@@ -32,11 +33,11 @@ public class PrinterMapSimpleTableStrategy implements IPrinterMapStrategy {
     }
 
     public void print(Room[][] table) {
-        PrintMessage.print("North");
+        PrintMessage.print(getMessage(MAP_NORTH));
         final int[] widths = new int[getMaxColumns(table)];
         adjustColumnWidths(table, widths);
         printPreparedTable(table, widths, getHorizontalBorder(widths));
-        PrintMessage.print("South");
+        PrintMessage.print(getMessage(MAP_SOUTH));
     }
 
     private void printPreparedTable(Room[][] table, int widths[], String horizontalBorder) {
@@ -104,20 +105,20 @@ public class PrinterMapSimpleTableStrategy implements IPrinterMapStrategy {
     public String safeGet(Room[] array, int index, String defaultValue) {
         if (array[index] != null) {
             if (state.getCurrentRoom().equals(array[index])) {
-                return "(you)";
+                return getMessage(MAP_YOU);
             }
            
 
             if (!array[index].isVisited()) {
-                return "(not visited)";
+                return getMessage(MAP_NOT_VISITED);
             } else {
                 if (array[index].getEnemy() != null) {
                     Enemy enemy = array[index].getEnemy();
                     if (!enemy.isDead()) {
-                        return "Enemy";
+                        return getMessage(MAP_ENEMY);
                     }
                 }
-                return "(visited)";
+                return getMessage(MAP_VISITED);
             }
 
         }

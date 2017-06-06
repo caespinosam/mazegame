@@ -5,6 +5,7 @@ import com.mazegame.core.model.character.Hero;
 import com.mazegame.core.model.game.Game;
 import com.mazegame.core.model.game.Room;
 import com.mazegame.view.cmd.printer.PrintMessage;
+import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to show the options when the player steps in a room.
@@ -15,17 +16,17 @@ public class RoomView implements ICommandLineView {
 
     public ICommandLineView show(Game game) {
 
-        PrintMessage.print("################# ROOM #######################");
+        PrintMessage.print(getMessage(TITTLE_ROOM));
         printMainPlayerInfo(game.getPlayer());
         Room currentRoom = game.getCurrentState().getCurrentRoom();
-        PrintMessage.print("Name: " + currentRoom.getName());
-        PrintMessage.print("Description: " + currentRoom.getDescription());
+        PrintMessage.print(getMessage(ROOM_NAME) + currentRoom.getName());
+        PrintMessage.print(getMessage(ROOM_DESCRIPTION) + currentRoom.getDescription());
         if (currentRoom.getEnemy() != null) {
             Enemy enemy = currentRoom.getEnemy();
             if (!enemy.isDead()) {
                 return askAttack();
             } else {
-                PrintMessage.print("You have already defeated the enemy of this room. Now the room is empy. ");
+                PrintMessage.print(getMessage(ENEMY_DIED));
             }
 
         }
@@ -41,9 +42,9 @@ public class RoomView implements ICommandLineView {
     }
 
     private void printMainPlayerInfo(Hero player) {
-        PrintMessage.print("- Your name: " + player.getName());
-        PrintMessage.print("- Your weapon: " + player.getWeapon());
-        PrintMessage.print("- Your HP: " + player.getCurretHP());
+        PrintMessage.print(getMessage(PLAYER_NAME) + player.getName());
+        PrintMessage.print(getMessage(PLAYER_WEAPON) + player.getWeapon());
+        PrintMessage.print(getMessage(PLAYER_HP) + player.getCurretHP());
     }
 
     public static final RoomView newInstance() {
