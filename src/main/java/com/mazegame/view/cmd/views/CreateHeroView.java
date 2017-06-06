@@ -24,64 +24,69 @@ import com.mazegame.view.menu.MenuOption;
 
 /**
  * View to create a new hero.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
 public class CreateHeroView implements ICommandLineView {
 
-    private static final int INITIAL_HP = 100;
-    private static final int INITIAL_BOW_ARROWS = 10;
-    private static final int INITIAL_POISON_LITTERS = 3;
+  private static final int INITIAL_HP = 100;
+  private static final int INITIAL_BOW_ARROWS = 10;
+  private static final int INITIAL_POISON_LITTERS = 3;
 
-    public ICommandLineView show(Game game) {
-        PrintMessage.print(getMessage(TITTLE_CREATE_CHARACTER));
-        PrintMessage.print("");
-        saveNewHero(game);
+  public ICommandLineView show(Game game) {
+    PrintMessage.print(getMessage(TITTLE_CREATE_CHARACTER));
+    PrintMessage.print("");
+    saveNewHero(game);
 
-        return MainMenuView.newInstance();
+    return MainMenuView.newInstance();
+  }
+
+  private void saveNewHero(Game game) {
+    String name = askName();
+    IWeapon weapon = askWeapon(game);
+    Hero newHero = Hero.newInstance(name, INITIAL_HP);
+    newHero.setWeapon(weapon);
+    try {
+      game.savePlayer(newHero);
+      PrintMessage.print(getMessage(NO_HERO_CREATED) + newHero.getName());
     }
-
-    private void saveNewHero(Game game) {
-        String name = askName();
-        IWeapon weapon = askWeapon(game);
-        Hero newHero = Hero.newInstance(name, INITIAL_HP);
-        newHero.setWeapon(weapon);
-        try {
-            game.savePlayer(newHero);
-            PrintMessage.print(getMessage(NO_HERO_CREATED) + newHero.getName());           
-        } catch (PlayerAlreadyExistException paee) {
-            PrintMessage.print(paee.getMessage());
-        }
-        PrintMessage.pressEnterToContinue();
-
+    catch (PlayerAlreadyExistException paee) {
+      PrintMessage.print(paee.getMessage());
     }
+    PrintMessage.pressEnterToContinue();
 
-    private String askName() {
-        IInputHandler<String> ti = new TextInputHandler(getMessage(MENU_ENTER_NAME));
-        ti.show();
-        return ti.getInput();
-    }
+  }
 
-    private IWeapon askWeapon(Game currentGame) {
+  private String askName() {
+    IInputHandler<String> ti = new TextInputHandler(getMessage(MENU_ENTER_NAME));
+    ti.show();
+    return ti.getInput();
+  }
 
-        Menu<IWeapon> weaponMenu = new Menu<>(getMessage(TITTLE_CREATE_CHARACTER));
-        MenuOption<IWeapon> opKnife = new MenuOption<>("1", getMessage(MENU_KNIFE), Knife.newInstance("My Knife"));
-        weaponMenu.addOption(opKnife);
-        MenuOption<IWeapon> opBow = new MenuOption<>("2", getMessage(MENU_BOW), Bow.newInstance("My bow", INITIAL_BOW_ARROWS));
-        weaponMenu.addOption(opBow);
-        MenuOption<IWeapon> opPoison = new MenuOption<>("3", getMessage(MENU_POISON), Poison.newInstance("My poison", INITIAL_POISON_LITTERS));
-        weaponMenu.addOption(opPoison);
+  private IWeapon askWeapon(Game currentGame) {
 
-        IInputHandler<MenuOption<IWeapon>> inputHandler = new MenuInputHandler<>(weaponMenu);
-        inputHandler.show();
-        IWeapon selectedWeapon = inputHandler.getInput().getSelectedValue();
+    Menu<IWeapon> weaponMenu = new Menu<>(getMessage(TITTLE_CREATE_CHARACTER));
+    MenuOption<IWeapon> opKnife = new MenuOption<>("1", getMessage(MENU_KNIFE),
+        Knife.newInstance("My Knife"));
+    weaponMenu.addOption(opKnife);
+    MenuOption<IWeapon> opBow = new MenuOption<>("2", getMessage(MENU_BOW),
+        Bow.newInstance("My bow", INITIAL_BOW_ARROWS));
+    weaponMenu.addOption(opBow);
+    MenuOption<IWeapon> opPoison = new MenuOption<>("3", getMessage(MENU_POISON),
+        Poison.newInstance("My poison", INITIAL_POISON_LITTERS));
+    weaponMenu.addOption(opPoison);
 
-        return selectedWeapon;
+    IInputHandler<MenuOption<IWeapon>> inputHandler = new MenuInputHandler<>(weaponMenu);
+    inputHandler.show();
+    IWeapon selectedWeapon = inputHandler.getInput().getSelectedValue();
 
-    }
+    return selectedWeapon;
 
-    public static final CreateHeroView newInstance() {
-        return new CreateHeroView();
-    }
+  }
+
+  public static final CreateHeroView newInstance() {
+    return new CreateHeroView();
+  }
 
 }

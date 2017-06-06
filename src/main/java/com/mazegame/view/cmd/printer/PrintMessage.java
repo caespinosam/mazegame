@@ -14,22 +14,23 @@ import java.io.IOException;
  */
 public final class PrintMessage {
 
-    public static void print(String message) {
-        System.out.println(message);
-    }
+  public static void print(String message) {
+    System.out.println(message);
+  }
 
-    public static void printf(String format, Object... args) {
-        System.out.printf(format, args);
-    }
+  public static void printf(String format, Object... args) {
+    System.out.printf(format, args);
+  }
 
-    public static void pressEnterToContinue() {
-        System.out.println(getMessage(PRESS_ENTER));
+  public static void pressEnterToContinue() {
+    System.out.println(getMessage(PRESS_ENTER));
 
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            System.out.println(getMessage(ERROR_READING_INPUT) + e.getMessage());
-        }
+    try {
+      System.in.read();
     }
+    catch (IOException e) {
+      System.out.println(getMessage(ERROR_READING_INPUT) + e.getMessage());
+    }
+  }
 
 }

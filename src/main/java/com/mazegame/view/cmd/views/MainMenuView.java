@@ -3,6 +3,7 @@ package com.mazegame.view.cmd.views;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_CREATE_HERO;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_EXIT;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_PLAY_GAME;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_RESUME_GAME;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_OPTION;
 import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_MAIN_MENU;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
@@ -16,39 +17,46 @@ import com.mazegame.view.menu.MenuOption;
 
 /**
  * View to show the main menu.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
 public class MainMenuView implements ICommandLineView {
 
-    public ICommandLineView show(Game currentGame) {
-        return showHomeMenu(currentGame);
-    }
+  public ICommandLineView show(Game currentGame) {
+    return showHomeMenu(currentGame);
+  }
 
-    private ICommandLineView showHomeMenu(Game currentGame) {
-      	
-      	currentGame.initState();
-        PrintMessage.print(getMessage(TITTLE_MAIN_MENU));
-        Menu<ICommandLineView> homeMenu = new Menu<>(getMessage(MENU_SELECT_OPTION));
+  private ICommandLineView showHomeMenu(Game currentGame) {
 
-        MenuOption<ICommandLineView> optionCreateCh = new MenuOption<>("1", getMessage(MENU_CREATE_HERO), CreateHeroView.newInstance());
-        homeMenu.addOption(optionCreateCh);
+    currentGame.initState();
+    PrintMessage.print(getMessage(TITTLE_MAIN_MENU));
+    Menu<ICommandLineView> homeMenu = new Menu<>(getMessage(MENU_SELECT_OPTION));
 
-        MenuOption<ICommandLineView> optionPlayNewG = new MenuOption<>("2", getMessage(MENU_PLAY_GAME), SelectHeroView.newInstance());
-        homeMenu.addOption(optionPlayNewG);
-        
-        MenuOption<ICommandLineView> optionExit = new MenuOption<>("3", getMessage(MENU_EXIT), null);
-        homeMenu.addOption(optionExit);
+    MenuOption<ICommandLineView> optionCreateCh = new MenuOption<>("1",
+        getMessage(MENU_CREATE_HERO), CreateHeroView.newInstance());
+    homeMenu.addOption(optionCreateCh);
 
-        IInputHandler<MenuOption<ICommandLineView>> inputHandler = new MenuInputHandler<>(homeMenu);
-        inputHandler.show();
+    MenuOption<ICommandLineView> optionPlayNewG = new MenuOption<>("2", getMessage(MENU_PLAY_GAME),
+        SelectHeroView.newInstance());
+    homeMenu.addOption(optionPlayNewG);
 
-        return inputHandler.getInput().getSelectedValue();
+    MenuOption<ICommandLineView> optionResume = new MenuOption<>("3", getMessage(MENU_RESUME_GAME),
+        ResumeGameView.newInstance());
+    homeMenu.addOption(optionResume);
 
-    }
+    MenuOption<ICommandLineView> optionExit = new MenuOption<>("4", getMessage(MENU_EXIT), null);
+    homeMenu.addOption(optionExit);
 
-    public static final MainMenuView newInstance() {
-        return new MainMenuView();
-    }
+    IInputHandler<MenuOption<ICommandLineView>> inputHandler = new MenuInputHandler<>(homeMenu);
+    inputHandler.show();
+
+    return inputHandler.getInput().getSelectedValue();
+
+  }
+
+  public static final MainMenuView newInstance() {
+    return new MainMenuView();
+  }
 
 }

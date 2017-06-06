@@ -4,16 +4,18 @@ import com.mazegame.core.model.game.Game;
 
 /**
  * Behavior expected from the command line views.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
 public interface ICommandLineView {
 
-    /**
-     * Shows the view.
-     *@param currentGame the current game 
-     *@return the next view to show
-     */
-    ICommandLineView show(Game currentGame);
-   
+  /**
+   * Shows the view.
+   * 
+   * @param currentGame the current game
+   * @return the next view to show
+   */
+  ICommandLineView show(Game currentGame);
+
 }

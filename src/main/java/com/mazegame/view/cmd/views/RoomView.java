@@ -18,57 +18,59 @@ import com.mazegame.view.cmd.printer.PrintMessage;
 
 /**
  * View to show the options when the player steps in a room.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
 public class RoomView implements ICommandLineView {
 
-    public ICommandLineView show(Game game) {
+  public ICommandLineView show(Game game) {
 
-        PrintMessage.print(getMessage(TITTLE_ROOM));
-        printMainPlayerInfo(game.getPlayer());
-        Room currentRoom = game.getCurrentState().getCurrentRoom();
-        PrintMessage.print(getMessage(ROOM_NAME) + currentRoom.getName());
-        PrintMessage.print(getMessage(ROOM_DESCRIPTION) + currentRoom.getDescription());
-        
-        if (game.isGameOver()) {
-          PrintMessage.print(getMessage(PLAYER_DIED));
-          PrintMessage.pressEnterToContinue();
-          return MainMenuView.newInstance();
-        } 
-        if (game.isFinished()) {          
-          return ExitView.newInstance();
-        } 
-        
-        if (currentRoom.getEnemy() != null) {
-            Enemy enemy = currentRoom.getEnemy();
-            if (!enemy.isDead()) {
-                return askAttack();
-            } else {
-                PrintMessage.print(getMessage(ENEMY_DIED));
-            }
+    PrintMessage.print(getMessage(TITTLE_ROOM));
+    printMainPlayerInfo(game.getPlayer());
+    Room currentRoom = game.getCurrentState().getCurrentRoom();
+    PrintMessage.print(getMessage(ROOM_NAME) + currentRoom.getName());
+    PrintMessage.print(getMessage(ROOM_DESCRIPTION) + currentRoom.getDescription());
 
-        }
-       
-        return askDirection();
+    if (game.isGameOver()) {
+      PrintMessage.print(getMessage(PLAYER_DIED));
+      PrintMessage.pressEnterToContinue();
+      return MainMenuView.newInstance();
+    }
+    if (game.isFinished()) {
+      return ExitView.newInstance();
     }
 
-    private ICommandLineView askDirection() {
-        return AskDirectionsView.newInstance();
+    if (currentRoom.getEnemy() != null) {
+      Enemy enemy = currentRoom.getEnemy();
+      if (!enemy.isDead()) {
+        return askAttack();
+      }
+      else {
+        PrintMessage.print(getMessage(ENEMY_DIED));
+      }
+
     }
 
-    private ICommandLineView askAttack() {
-        return AskAttackEnemyView.newInstance();
-    }
+    return askDirection();
+  }
 
-    private void printMainPlayerInfo(Hero player) {
-        PrintMessage.print(getMessage(PLAYER_NAME) + player.getName());
-        PrintMessage.print(getMessage(PLAYER_WEAPON) + player.getWeapon());
-        PrintMessage.print(getMessage(PLAYER_HP) + player.getCurretHP());
-    }
+  private ICommandLineView askDirection() {
+    return AskDirectionsView.newInstance();
+  }
 
-    public static final RoomView newInstance() {
-        return new RoomView();
-    }
+  private ICommandLineView askAttack() {
+    return AskAttackEnemyView.newInstance();
+  }
+
+  private void printMainPlayerInfo(Hero player) {
+    PrintMessage.print(getMessage(PLAYER_NAME) + player.getName());
+    PrintMessage.print(getMessage(PLAYER_WEAPON) + player.getWeapon());
+    PrintMessage.print(getMessage(PLAYER_HP) + player.getCurretHP());
+  }
+
+  public static final RoomView newInstance() {
+    return new RoomView();
+  }
 
 }

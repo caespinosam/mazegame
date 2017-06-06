@@ -8,24 +8,22 @@ import com.mazegame.view.cmd.printer.PrintMessage;
 
 /**
  * View to show the end of the game.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
-public class ExitView implements ICommandLineView
-{
+public class ExitView implements ICommandLineView {
 
-  public ICommandLineView show(Game game)
-  {
+  public ICommandLineView show(Game game) {
 
-	PrintMessage.print(getMessage(TITTLE_EXIT_FOUND));
-	PrintMessage.pressEnterToContinue();
+    PrintMessage.print(getMessage(TITTLE_EXIT_FOUND));
+    PrintMessage.pressEnterToContinue();
 
-	return MainMenuView.newInstance();
+    return MainMenuView.newInstance();
   }
 
-  public static final ExitView newInstance()
-  {
-	return new ExitView();
+  public static final ExitView newInstance() {
+    return new ExitView();
   }
 
 }

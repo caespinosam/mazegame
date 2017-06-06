@@ -13,26 +13,26 @@ import com.mazegame.core.model.character.Hero;
  */
 public interface IPlayerPersistor {
 
-    /**
-     * Persists a new hero.
-     * 
-     * @param p the hero
-     * @throws PlayerAlreadyExistException in case the name already exist
-     */
-    public void savePlayer(Hero p) throws PlayerAlreadyExistException;
+  /**
+   * Persists a new hero.
+   * 
+   * @param p the hero
+   * @throws PlayerAlreadyExistException in case the name already exist
+   */
+  public void savePlayer(Hero p) throws PlayerAlreadyExistException;
 
-    /**
-     * Returns the heroes/players that have been created.
-     * 
-     * @return heroes that have been created
-     */
-    public Iterator<Hero> getPlayers();
+  /**
+   * Returns the heroes/players that have been created.
+   * 
+   * @return heroes that have been created
+   */
+  public Iterator<Hero> getPlayers();
 
-    /**
-     * Returns the hero/player with the specified name.
-     * 
-     * @param name the name to filter.
-     * @return the hero/player with the specified name.
-     */
-    public Hero getPlayerByName(String name);
+  /**
+   * Returns the hero/player with the specified name.
+   * 
+   * @param name the name to filter.
+   * @return the hero/player with the specified name.
+   */
+  public Hero getPlayerByName(String name);
 }

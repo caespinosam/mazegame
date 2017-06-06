@@ -4,14 +4,16 @@ import com.mazegame.core.model.game.Board;
 
 /**
  * Producer of boards.
- * @author Cesar 
+ * 
+ * @author Cesar
  *
  */
 public interface IBoardProducer {
 
-    /**
-     * Creates a board to use by the game.
-     *@return a board
-     */
-    Board loadBoard();
+  /**
+   * Creates a board to use by the game.
+   * 
+   * @return a board
+   */
+  Board loadBoard();
 }

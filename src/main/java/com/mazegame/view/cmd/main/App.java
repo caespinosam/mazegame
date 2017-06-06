@@ -11,32 +11,32 @@ import com.mazegame.view.cmd.views.MainMenuView;
 /**
  * Launch the command-line app.
  * 
- * @author Cesar 
+ * @author Cesar
  *
  */
 public class App {
 
-    public void run() {
-        mainLoop();
+  public void run() {
+    mainLoop();
+  }
+
+  /**
+   * Executes the game as long as a view is shown.
+   */
+  private void mainLoop() {
+
+    Game game = Game.newInstance();
+    MainMenuView menuView = MainMenuView.newInstance();
+    ICommandLineView nextView = menuView.show(game);
+    while (nextView != null) {
+      nextView = nextView.show(game);
     }
+    PrintMessage.print(getMessage(BYE_MESSAGE));
 
-    /**
-     * Executes the game as long as a view is shown.
-     */
-    private void mainLoop() {
+  }
 
-        Game game = Game.newInstance();
-        MainMenuView menuView = MainMenuView.newInstance();
-        ICommandLineView nextView = menuView.show(game);
-        while (nextView != null) {
-            nextView = nextView.show(game);
-        }
-        PrintMessage.print(getMessage(BYE_MESSAGE));
-
-    }
-
-    public static void main(String... strings) {
-        new App().run();
-    }
+  public static void main(String... strings) {
+    new App().run();
+  }
 
 }
