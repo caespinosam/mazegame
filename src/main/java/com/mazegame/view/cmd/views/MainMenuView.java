@@ -8,7 +8,7 @@ import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_OPTION;
 import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_MAIN_MENU;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
-import com.mazegame.core.model.game.Game;
+import com.mazegame.core.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.IInputHandler;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;

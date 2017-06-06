@@ -1,6 +1,6 @@
 package com.mazegame.core.services;
 
-import com.mazegame.core.model.game.Board;
+import com.mazegame.core.model.board.Board;
 
 /**
  * Producer of boards.

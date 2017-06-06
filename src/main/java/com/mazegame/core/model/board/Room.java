@@ -1,4 +1,4 @@
-package com.mazegame.core.model.game;
+package com.mazegame.core.model.board;
 
 import java.util.UUID;
 

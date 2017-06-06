@@ -1,6 +1,6 @@
 package com.mazegame.view.cmd.views;
 
-import com.mazegame.core.model.game.Game;
+import com.mazegame.core.game.Game;
 
 /**
  * Behavior expected from the command line views.

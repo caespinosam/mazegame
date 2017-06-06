@@ -1,4 +1,4 @@
-package com.mazegame.core.model.game;
+package com.mazegame.core.model.board;
 
 /**
  * A grid of rooms where the main player may find enemies. It contains both an

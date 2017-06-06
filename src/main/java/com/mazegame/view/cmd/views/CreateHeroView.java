@@ -9,8 +9,8 @@ import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_CREATE_CHARACTER;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import com.mazegame.core.exception.PlayerAlreadyExistException;
+import com.mazegame.core.game.Game;
 import com.mazegame.core.model.character.Hero;
-import com.mazegame.core.model.game.Game;
 import com.mazegame.core.model.weapon.Bow;
 import com.mazegame.core.model.weapon.IWeapon;
 import com.mazegame.core.model.weapon.Knife;

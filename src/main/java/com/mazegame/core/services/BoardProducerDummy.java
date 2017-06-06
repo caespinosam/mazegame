@@ -1,14 +1,14 @@
 package com.mazegame.core.services;
 
+import com.mazegame.core.model.board.Board;
+import com.mazegame.core.model.board.Room;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.GhostAttackBehavior;
 import com.mazegame.core.model.character.GoblinAttackBehavior;
 import com.mazegame.core.model.character.ZombieAttackBehavior;
-import com.mazegame.core.model.game.Board;
-import com.mazegame.core.model.game.Room;
 
 /**
- * Creates a board manually.
+ * Creates a simple board manually.
  * 
  * @author Cesar
  *

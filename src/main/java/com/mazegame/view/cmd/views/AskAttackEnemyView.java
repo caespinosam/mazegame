@@ -20,10 +20,10 @@ import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import java.util.Iterator;
 
+import com.mazegame.core.game.Game;
+import com.mazegame.core.model.board.Room;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.Hero;
-import com.mazegame.core.model.game.Game;
-import com.mazegame.core.model.game.Room;
 import com.mazegame.core.model.weapon.IWeapon;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.IInputHandler;
@@ -104,7 +104,7 @@ public class AskAttackEnemyView implements ICommandLineView {
     Hero player = game.getPlayer();
 
     final int hpBefore = player.getCurretHP();
-    game.fight(player, enemy);
+    game.fight(enemy);
 
     PrintMessage.print("");
     PrintMessage.print(getMessage(ATTACK_RESULTS));

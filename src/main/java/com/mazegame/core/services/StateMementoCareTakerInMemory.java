@@ -15,7 +15,7 @@ public class StateMementoCareTakerInMemory implements IStateMementoCareTaker {
   private static final StateMementoCareTakerInMemory INSTANCE = new StateMementoCareTakerInMemory();
 
   /** All the saved game states. */
-  private Map<String, StateMemento> mementoList = new HashMap<>();
+  private Map<String, StateMemento> mementos = new HashMap<>();
 
   private StateMementoCareTakerInMemory() {
 
@@ -23,11 +23,11 @@ public class StateMementoCareTakerInMemory implements IStateMementoCareTaker {
 
   /**
    * 
-   * @see com.mazegame.core.services.IStateMementoCareTaker#add(com.mazegame.core.services.StateMemento)
+   * @see com.mazegame.core.services.IStateMementoCareTaker#addState(com.mazegame.core.services.StateMemento)
    */
   @Override
-  public void add(StateMemento state) {
-    mementoList.put(state.getId(), state);
+  public void addState(StateMemento state) {
+    mementos.put(state.getId(), state);
   }
 
   /**
@@ -36,7 +36,16 @@ public class StateMementoCareTakerInMemory implements IStateMementoCareTaker {
    */
   @Override
   public Iterator<StateMemento> getStates() {
-    return mementoList.values().iterator();
+    return mementos.values().iterator();
+  }
+  
+  /**
+   * 
+   * @see com.mazegame.core.services.IStateMementoCareTaker#getState(java.lang.String)
+   */
+  @Override
+  public StateMemento getState(String id) {
+      return mementos.get(id);
   }
 
   /**
@@ -47,5 +56,7 @@ public class StateMementoCareTakerInMemory implements IStateMementoCareTaker {
   public static final StateMementoCareTakerInMemory getInstance() {
     return INSTANCE;
   }
+
+ 
 
 }

@@ -15,13 +15,20 @@ public interface IStateMementoCareTaker {
    * 
    * @param state the state to save.
    */
-  public void add(StateMemento state);
+  void addState(StateMemento state);
+  
+  /**
+   * Returns the saved state with the specified id.
+   *@param id
+   *@return
+   */
+  StateMemento getState(String id);
 
   /**
    * Returns all the saved game states.
    * 
    * @return all the saved game states.
    */
-  public Iterator<StateMemento> getStates();
+  Iterator<StateMemento> getStates();
 
 }

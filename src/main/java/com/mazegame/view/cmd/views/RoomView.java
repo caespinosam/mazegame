@@ -10,10 +10,10 @@ import static com.mazegame.view.cmd.views.MessageBundle.ROOM_NAME;
 import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_ROOM;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
+import com.mazegame.core.game.Game;
+import com.mazegame.core.model.board.Room;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.Hero;
-import com.mazegame.core.model.game.Game;
-import com.mazegame.core.model.game.Room;
 import com.mazegame.view.cmd.printer.PrintMessage;
 
 /**
@@ -37,10 +37,7 @@ public class RoomView implements ICommandLineView {
       PrintMessage.pressEnterToContinue();
       return MainMenuView.newInstance();
     }
-    if (game.isFinished()) {
-      return ExitView.newInstance();
-    }
-
+   
     if (currentRoom.getEnemy() != null) {
       Enemy enemy = currentRoom.getEnemy();
       if (!enemy.isDead()) {
@@ -49,8 +46,12 @@ public class RoomView implements ICommandLineView {
       else {
         PrintMessage.print(getMessage(ENEMY_DIED));
       }
-
     }
+    
+    if (game.isFinished()) {
+      return ExitView.newInstance();
+    }
+
 
     return askDirection();
   }

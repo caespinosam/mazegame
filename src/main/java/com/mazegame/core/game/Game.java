@@ -1,7 +1,8 @@
-package com.mazegame.core.model.game;
+package com.mazegame.core.game;
 
 import java.util.Iterator;
 
+import com.mazegame.core.model.board.Board;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.Hero;
 import com.mazegame.core.services.BoardProducerDummy;
@@ -108,14 +109,13 @@ public class Game {
   }
 
   /**
-   * Simulates a fight between the player and an enemy.
-   * 
-   * @param hero the current player.
+   * Simulates a fight between the current player and an enemy.
+   *
    * @param enemy the enemy.
    */
-  public void fight(Hero hero, Enemy enemy) {
-    fightManager.fight(hero, enemy);
-    if (hero.isDead()) {
+  public void fight(Enemy enemy) {
+    fightManager.fight(currentState.getPlayer(), enemy);
+    if (currentState.getPlayer().isDead()) {
       currentState.setGameState(EGameState.GAME_OVER);
     }
   }
@@ -127,10 +127,6 @@ public class Game {
    */
   public State getCurrentState() {
     return currentState;
-  }
-
-  public void setCurrentState(State currentState) {
-    this.currentState = currentState;
   }
 
   /**
@@ -156,16 +152,17 @@ public class Game {
    * 
    * @param id the assigned id.
    */
-  public void saveGame(String id) {
-    stateMementoCareTaker.add(new StateMemento(id, currentState));
+  public void saveCurrentGame(String id) {
+    stateMementoCareTaker.addState(new StateMemento(id, currentState));
   }
 
   /** 
-   * Restores/resumes at the specified game state.
+   * Restores the specified game state.
    * 
-   * @param memento the state to restore.
+   * @param oldGameId the game state to restore.
    */
-  public void restoreToState(StateMemento memento) {
+  public void restoreState(String oldGameId) {
+    StateMemento memento = stateMementoCareTaker.getState(oldGameId);
     currentState = memento.getSavedState();
   }
 

@@ -8,8 +8,8 @@ import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import java.util.Iterator;
 
+import com.mazegame.core.game.Game;
 import com.mazegame.core.model.character.Hero;
-import com.mazegame.core.model.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;

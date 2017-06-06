@@ -1,6 +1,6 @@
 package com.mazegame.core.services;
 
-import com.mazegame.core.model.game.State;
+import com.mazegame.core.game.State;
 
 /**
  * A class to keep a game state that will be saved and restored.

@@ -36,6 +36,7 @@
 				<configuration>
 					<instrumentation>
 						<excludes>
+							<!--  ui not tested -->
 							<exclude>com/mazegame/view/cmd/main/**/*.class</exclude>
 							<exclude>com/mazegame/view/cmd/printer/*</exclude>
 							<exclude>com/mazegame/view/cmd/views/*</exclude>

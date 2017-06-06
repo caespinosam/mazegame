@@ -11,7 +11,7 @@ import static com.mazegame.view.cmd.views.MessageBundle.MENU_WHERE_TO_GO;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import com.mazegame.core.exception.InvalidMovementException;
-import com.mazegame.core.model.game.Game;
+import com.mazegame.core.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.printer.PrinterMap;
 import com.mazegame.view.cmd.printer.PrinterMapSimpleTableStrategy;

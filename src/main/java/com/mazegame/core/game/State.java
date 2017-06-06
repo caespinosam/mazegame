@@ -1,6 +1,8 @@
-package com.mazegame.core.model.game;
+package com.mazegame.core.game;
 
 import com.mazegame.core.exception.InvalidMovementException;
+import com.mazegame.core.model.board.Board;
+import com.mazegame.core.model.board.Room;
 import com.mazegame.core.model.character.Hero;
 
 /**

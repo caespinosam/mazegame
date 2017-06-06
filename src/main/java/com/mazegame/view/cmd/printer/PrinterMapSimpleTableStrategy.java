@@ -8,9 +8,9 @@ import static com.mazegame.view.cmd.views.MessageBundle.MAP_VISITED;
 import static com.mazegame.view.cmd.views.MessageBundle.MAP_YOU;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
+import com.mazegame.core.game.State;
+import com.mazegame.core.model.board.Room;
 import com.mazegame.core.model.character.Enemy;
-import com.mazegame.core.model.game.Room;
-import com.mazegame.core.model.game.State;
 
 /**
  * This strategy prints the map as a basic table with no colors or effects. It
