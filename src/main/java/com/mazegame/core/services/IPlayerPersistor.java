@@ -24,7 +24,7 @@ public interface IPlayerPersistor {
     /**
      * Returns the heroes/players that have been created.
      * 
-     * @return
+     * @return heroes that have been created
      */
     public Iterator<Hero> getPlayers();
 
@@ -32,7 +32,7 @@ public interface IPlayerPersistor {
      * Returns the hero/player with the specified name.
      * 
      * @param name the name to filter.
-     * @return
+     * @return the hero/player with the specified name.
      */
     public Hero getPlayerByName(String name);
 }

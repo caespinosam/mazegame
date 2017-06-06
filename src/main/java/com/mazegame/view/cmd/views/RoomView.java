@@ -1,11 +1,20 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ENEMY_DIED;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_DIED;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_HP;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_NAME;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_WEAPON;
+import static com.mazegame.view.cmd.views.MessageBundle.ROOM_DESCRIPTION;
+import static com.mazegame.view.cmd.views.MessageBundle.ROOM_NAME;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_ROOM;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.Hero;
 import com.mazegame.core.model.game.Game;
 import com.mazegame.core.model.game.Room;
 import com.mazegame.view.cmd.printer.PrintMessage;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to show the options when the player steps in a room.

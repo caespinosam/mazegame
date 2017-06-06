@@ -10,7 +10,7 @@ import com.mazegame.core.model.character.IAttackable;
  */
 public class Knife extends Item implements IWeapon {
 
-    private final static int DAMAGE_POINTS = 2;
+    private static final  int DAMAGE_POINTS = 2;
 
     private Knife(String name) {
         super(name);

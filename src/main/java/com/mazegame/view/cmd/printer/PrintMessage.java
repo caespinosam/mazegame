@@ -1,7 +1,10 @@
 package com.mazegame.view.cmd.printer;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ERROR_READING_INPUT;
+import static com.mazegame.view.cmd.views.MessageBundle.PRESS_ENTER;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import java.io.IOException;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This class is used to print messages to the terminal.

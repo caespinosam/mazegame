@@ -1,5 +1,11 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ERROR_NO_CHARACTERS;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_CHARACTER;
+import static com.mazegame.view.cmd.views.MessageBundle.SELECTED_HERO;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_SELECT_CHARACTER;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import java.util.Iterator;
 
 import com.mazegame.core.model.character.Hero;
@@ -9,7 +15,6 @@ import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to select the player before starting the game.

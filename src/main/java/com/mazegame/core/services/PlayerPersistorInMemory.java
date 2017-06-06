@@ -15,7 +15,7 @@ import com.mazegame.core.model.character.Hero;
  */
 public class PlayerPersistorInMemory  implements IPlayerPersistor {
 
-    private final static PlayerPersistorInMemory INSTANCE = new PlayerPersistorInMemory();
+    private static final PlayerPersistorInMemory INSTANCE = new PlayerPersistorInMemory();
     /** The players created.*/
     private List<Hero> availablePlayers = new ArrayList<>();
     
@@ -52,7 +52,7 @@ public class PlayerPersistorInMemory  implements IPlayerPersistor {
 
     /**
      * Returns a singleton instance.
-     *@return
+     *@return a singleton instance
      */
     public static final PlayerPersistorInMemory getInstance() {
         return INSTANCE;

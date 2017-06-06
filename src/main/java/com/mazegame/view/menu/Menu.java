@@ -9,7 +9,7 @@ import java.util.List;
  * 
  * @author Cesar 
  *
- * @param <T>
+ * 
  */
 public class Menu<T> {
 
@@ -40,7 +40,7 @@ public class Menu<T> {
     
     /**
      * Returns the specified option.
-     *@param selectedId 
+     *@param selectedId the id to look up
      *@return the specified option.
      */
     public MenuOption<T> getSelectedOption(String selectedId) {

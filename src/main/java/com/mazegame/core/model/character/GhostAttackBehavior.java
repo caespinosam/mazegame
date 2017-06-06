@@ -13,6 +13,10 @@ public class GhostAttackBehavior implements IEnemyAttackBehavior {
     private static final int DAMAGE_UPPER_LIMIT = 10;
     private static final int DAMAGE_LOWER_LIMIT = 5;
 
+    /*
+     * (non-Javadoc)
+     * @see com.mazegame.core.model.character.IEnemyAttackBehavior#attack(com.mazegame.core.model.character.Hero)
+     */
     @Override
     public void attack(Hero hero) {        
         Random rand = new Random();
@@ -20,6 +24,10 @@ public class GhostAttackBehavior implements IEnemyAttackBehavior {
         hero.receiveDamage(randomDamage);        
     }
 
+    /*
+     * (non-Javadoc)
+     * @see com.mazegame.core.model.character.IEnemyAttackBehavior#getAttackName()
+     */
     @Override
     public String getAttackName() {
       return "Ghost attack. Random damage units from " + DAMAGE_LOWER_LIMIT + DAMAGE_UPPER_LIMIT;

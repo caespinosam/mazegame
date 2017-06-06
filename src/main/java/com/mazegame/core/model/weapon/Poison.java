@@ -11,7 +11,7 @@ import com.mazegame.core.model.character.IAttackable;
  *
  */
 public class Poison extends Item implements IWeaponRechargeable {
-    /** ammo */
+    /** Ammo. */
     private int litters;
 
     private Poison(String name, int litters) {

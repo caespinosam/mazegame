@@ -1,5 +1,23 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ATTACK_RESULTS;
+import static com.mazegame.view.cmd.views.MessageBundle.ENEMY_ATTACK;
+import static com.mazegame.view.cmd.views.MessageBundle.ENEMY_DEFEATED;
+import static com.mazegame.view.cmd.views.MessageBundle.ENEMY_HP;
+import static com.mazegame.view.cmd.views.MessageBundle.ENEMY_NAME;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_ATTACK;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_CHANGE_WEAPON;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_ACTION;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_STEP_BACK;
+import static com.mazegame.view.cmd.views.MessageBundle.NO_WEAPONS_IN_BAG;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_ATTACKED;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_DIED;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_HP;
+import static com.mazegame.view.cmd.views.MessageBundle.PLAYER_WEAPON;
+import static com.mazegame.view.cmd.views.MessageBundle.ROOM_WITH_ENEMY;
+import static com.mazegame.view.cmd.views.MessageBundle.USE_WEAPON_FROM_BAG;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import java.util.Iterator;
 
 import com.mazegame.core.model.character.Enemy;
@@ -13,7 +31,7 @@ import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
 import com.mazegame.view.menu.ValueCommand;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
+
 /**
  * A view to control the fight between the player and an enemy.
  * @author Cesar 
@@ -71,7 +89,7 @@ public class AskAttackEnemyView implements ICommandLineView {
 
     /**
      * Execute the attack and shows the result.
-     *@param game
+     *@param game the current game
      */
     private void attack(Game game) {
 
@@ -79,7 +97,7 @@ public class AskAttackEnemyView implements ICommandLineView {
         Enemy enemy = room.getEnemy();
         Hero player = game.getPlayer();
 
-        int hpBefore = player.getCurretHP();
+        final int hpBefore = player.getCurretHP();
         game.fight(player, enemy);
 
         PrintMessage.print("");
@@ -96,7 +114,7 @@ public class AskAttackEnemyView implements ICommandLineView {
 
     /**
      * Shows an option to change the player's weapon.
-     *@param game
+     *@param game the current game
      */
     private void changeWeapon(Game game) {
 

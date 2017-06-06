@@ -9,13 +9,13 @@ import com.mazegame.view.cmd.printer.PrintMessage;
  * @author Cesar 
  *
  */
-public class TextInputHandler implements IInputHandler<String>{
+public class TextInputHandler implements IInputHandler<String> {
     
     private Scanner scanner = new Scanner(System.in);
     private String label ;
     private String value;
     
-    public TextInputHandler(String label){
+    public TextInputHandler(String label) {
         this.label = label;
     }
     

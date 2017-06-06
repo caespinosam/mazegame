@@ -1,9 +1,16 @@
 package com.mazegame.view.cmd.printer;
 
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_ENEMY;
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_NORTH;
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_NOT_VISITED;
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_SOUTH;
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_VISITED;
+import static com.mazegame.view.cmd.views.MessageBundle.MAP_YOU;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.game.Room;
 import com.mazegame.core.model.game.State;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This strategy prints the map as a basic table with no colors or effects.
@@ -40,7 +47,7 @@ public class PrinterMapSimpleTableStrategy implements IPrinterMapStrategy {
         PrintMessage.print(getMessage(MAP_SOUTH));
     }
 
-    private void printPreparedTable(Room[][] table, int widths[], String horizontalBorder) {
+    private void printPreparedTable(Room[][] table, int[] widths, String horizontalBorder) {
         final int lineLength = horizontalBorder.length();
         PrintMessage.print(horizontalBorder);
         for (final Room[] row : table) {

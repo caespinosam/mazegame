@@ -11,7 +11,7 @@ import com.mazegame.core.model.character.IAttackable;
 public class Bow extends Item implements IWeaponRechargeable {
 
     /** Damage cause to the character. */
-    private final static int DAMAGE_POINTS = 10;
+    private static final  int DAMAGE_POINTS = 10;
     /** Ammo. */
     private int arrows;
 

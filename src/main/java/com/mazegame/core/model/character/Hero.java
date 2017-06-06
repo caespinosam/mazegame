@@ -13,11 +13,11 @@ import com.mazegame.core.model.weapon.Item;
  * @author Cesar
  *
  */
-public class Hero extends BaseCharacter {
+public class Hero extends BaseCharacter implements Cloneable {
 
     /** The hero may have a weapon. */
     private IWeapon weapon;
-    /** The hero carries a bag of items (other weapons, etc) */
+    /** The hero carries a bag of items (other weapons, etc). */
     private Set<Item> itemsBag = new HashSet<>();
 
     private Hero(String name, int health) {

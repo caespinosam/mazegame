@@ -1,5 +1,13 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_BOW;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_ENTER_NAME;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_KNIFE;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_POISON;
+import static com.mazegame.view.cmd.views.MessageBundle.NO_HERO_CREATED;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_CREATE_CHARACTER;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import com.mazegame.core.exception.PlayerAlreadyExistException;
 import com.mazegame.core.model.character.Hero;
 import com.mazegame.core.model.game.Game;
@@ -13,7 +21,7 @@ import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.cmd.views.input.TextInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
+
 /**
  * View to create a new hero.
  * @author Cesar 

@@ -3,7 +3,7 @@ package com.mazegame.core.services;
 import com.mazegame.core.model.character.Enemy;
 import com.mazegame.core.model.character.Hero;
 import com.mazegame.core.model.weapon.IWeaponRechargeable;
-import com.mazegame.core.model.weapon.Poison;;
+import com.mazegame.core.model.weapon.Poison;
 
 /**
  * An implementation of {@link IFightManager}. Executes a basic fight algorithm.
@@ -13,8 +13,8 @@ import com.mazegame.core.model.weapon.Poison;;
  */
 public class FightManagerDummy implements IFightManager {
 
-    private final static FightManagerDummy INSTANCE = new FightManagerDummy();
-    private final static int AMMO_REWARD_UNITS = 10;
+    private static final FightManagerDummy INSTANCE = new FightManagerDummy();
+    private static final int AMMO_REWARD_UNITS = 10;
 
     private FightManagerDummy() {
 
@@ -52,7 +52,7 @@ public class FightManagerDummy implements IFightManager {
     /**
      * Returns a singleton instance.
      * 
-     * @return
+     * @return a singleton instance
      */
     public static final FightManagerDummy getInstance() {
         return INSTANCE;

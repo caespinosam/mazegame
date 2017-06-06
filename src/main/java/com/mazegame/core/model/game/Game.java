@@ -20,7 +20,7 @@ public class Game {
     private final IPlayerPersistor playerPersistor = PlayerPersistorInMemory.getInstance();
     private final IFightManager fightManager = FightManagerDummy.getInstance();
     private final IBoardProducer boardProducer = BoardProducerDummy.getInstance();
-    /** Keep the current state of the game: player, current room, movements, etc */
+    /** Keep the current state of the game: player, current room, movements, etc .*/
     private State currentState;
     
     private Game() {
@@ -29,9 +29,9 @@ public class Game {
     
   
     /**
-     * Allows to generate a new state for a new game;
+     * Allows to generate a new state for a new game.
      */
-    public void initState(){
+    public void initState() {
       init();
     }
 
@@ -80,7 +80,7 @@ public class Game {
     
     /**
      * Whether the player died.
-     * @return
+     * @return true if the player died
      */
     public boolean isGameOver() {
       return currentState.getGameState() == EGameState.GAME_OVER; 

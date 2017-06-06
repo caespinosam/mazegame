@@ -1,6 +1,7 @@
 package com.mazegame.view.cmd.main;
 
-import static com.mazegame.view.cmd.views.MessageBundle.*;
+import static com.mazegame.view.cmd.views.MessageBundle.BYE_MESSAGE;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import com.mazegame.core.model.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;

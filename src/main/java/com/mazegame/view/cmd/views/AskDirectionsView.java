@@ -1,5 +1,14 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ERROR_CHECK_MAP;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_GO_EAST;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_GO_NORTH;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_GO_SOUTH;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_GO_WEST;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_VIEW_MAP;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_WHERE_TO_GO;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import com.mazegame.core.exception.InvalidMovementException;
 import com.mazegame.core.model.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;
@@ -10,7 +19,6 @@ import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
 import com.mazegame.view.menu.ValueCommand;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * A view to ask for the next step.
@@ -28,7 +36,7 @@ public class AskDirectionsView implements ICommandLineView {
         directionMenu.addOption(optionNorth);
         MenuOption<ValueCommand> optionEast = new MenuOption<>("2", getMessage(MENU_GO_EAST), () -> currentGame.goEast());
         directionMenu.addOption(optionEast);
-        MenuOption<ValueCommand> optionSouth = new MenuOption<>("3",getMessage( MENU_GO_SOUTH), () -> currentGame.goSouth());
+        MenuOption<ValueCommand> optionSouth = new MenuOption<>("3",getMessage(MENU_GO_SOUTH), () -> currentGame.goSouth());
         directionMenu.addOption(optionSouth);
         MenuOption<ValueCommand> optionWest = new MenuOption<>("4", getMessage(MENU_GO_WEST), () -> currentGame.goWest());
         directionMenu.addOption(optionWest);

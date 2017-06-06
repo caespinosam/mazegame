@@ -1,7 +1,7 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_EXIT_FOUND;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 import com.mazegame.core.model.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;

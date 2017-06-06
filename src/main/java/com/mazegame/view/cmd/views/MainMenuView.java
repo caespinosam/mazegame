@@ -1,12 +1,18 @@
 package com.mazegame.view.cmd.views;
 
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_CREATE_HERO;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_EXIT;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_PLAY_GAME;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_OPTION;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_MAIN_MENU;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import com.mazegame.core.model.game.Game;
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.input.IInputHandler;
 import com.mazegame.view.cmd.views.input.MenuInputHandler;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * View to show the main menu.

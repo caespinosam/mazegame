@@ -1,29 +1,31 @@
 package com.mazegame.view.cmd.views.input;
 
+import static com.mazegame.view.cmd.views.MessageBundle.ERROR_INVALID_OPTION;
+import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
+
 import java.util.Iterator;
 import java.util.Scanner;
 
 import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.menu.Menu;
 import com.mazegame.view.menu.MenuOption;
-import static com.mazegame.view.cmd.views.MessageBundle.*;
 
 /**
  * This input-handler displays a menu via command line and returns the selected option.
  * @author Cesar 
  *
- * @param <T>
+ * 
  */
-public class MenuInputHandler<T> implements IInputHandler<MenuOption<T>>{
+public class MenuInputHandler<T> implements IInputHandler<MenuOption<T>> {
    
-    /** The menu to show */
+    /** The menu to show. */
     private Menu<T> menu;
     /** The selected option.*/
     private MenuOption<T> value;
     
     private final Scanner scanner = new Scanner(System.in);
     
-    public MenuInputHandler(Menu<T> menu){
+    public MenuInputHandler(Menu<T> menu) {
         this.menu = menu;
     }
     

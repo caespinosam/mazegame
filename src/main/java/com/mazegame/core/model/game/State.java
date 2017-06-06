@@ -28,7 +28,7 @@ public class State {
     /**
      * Moves the current player one room to the north.
      * 
-     * @throws InvalidMovementException
+     * @throws InvalidMovementException if the movement is invalid
      */
     public void goNorth() throws InvalidMovementException {
         if (currentPositionRow > 0 && board.getRoom(currentPositionRow - 1, currentPositionColumn) != null) {
@@ -46,7 +46,7 @@ public class State {
     /**
      * Moves the current player one room to the west.
      * 
-     * @throws InvalidMovementException
+     * @throws InvalidMovementException if the movement is invalid
      */
     public void goWest() throws InvalidMovementException {
         if (currentPositionColumn > 0 && board.getRoom(currentPositionRow, currentPositionColumn - 1) != null) {
@@ -65,7 +65,7 @@ public class State {
     /**
      * Moves the current player one room to the south.
      * 
-     * @throws InvalidMovementException
+     * @throws InvalidMovementException if the movement is invalid
      */
     public void goSouth() throws InvalidMovementException {
         if (currentPositionRow < board.getRowsCount() - 1 && board.getRoom(currentPositionRow + 1, currentPositionColumn) != null) {
@@ -83,7 +83,7 @@ public class State {
     /**
      * Moves the current player one room to the east.
      * 
-     * @throws InvalidMovementException
+     * @throws InvalidMovementException if the movement is invalid
      */
     public void goEast() throws InvalidMovementException {
         if (currentPositionColumn < board.getColumsCount() - 1 && board.getRoom(currentPositionRow, currentPositionColumn + 1) != null) {

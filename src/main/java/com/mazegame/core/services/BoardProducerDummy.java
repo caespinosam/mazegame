@@ -15,7 +15,7 @@ import com.mazegame.core.model.game.Room;
  */
 public class BoardProducerDummy implements IBoardProducer {
 
-    private final static BoardProducerDummy INSTANCE = new BoardProducerDummy();
+    private static final BoardProducerDummy INSTANCE = new BoardProducerDummy();
 
     private BoardProducerDummy() {
 
@@ -99,7 +99,7 @@ public class BoardProducerDummy implements IBoardProducer {
 
     /**
      * Returns a singleton instance.
-     *@return
+     *@return a singleton instance
      */
     public static final BoardProducerDummy getInstance() {
         return INSTANCE;

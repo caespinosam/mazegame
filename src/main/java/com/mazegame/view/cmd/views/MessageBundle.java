@@ -17,7 +17,7 @@ public final class MessageBundle
  public static final String MAP_YOU = "map.you";
  public static final String MAP_VISITED = "map.visited";
  public static final String MAP_NOT_VISITED = "map.not.visited";
- public static final String MAP_ENEMY= "map.enemy";
+ public static final String MAP_ENEMY = "map.enemy";
  
  public static final String PRESS_ENTER = "press.enter";
  public static final String ATTACK_RESULTS = "attack.results";
@@ -77,10 +77,11 @@ public final class MessageBundle
 
 /**
  * Returns the specified text stored in the message bundle file.
- * @param key
- * @return
+ * 
+ * @param key the id of the message to look up
+ * @return the message 
  */
- public static String  getMessage(String key){
+ public static String  getMessage(String key) {
    
    return  rb.getString(key);
  }

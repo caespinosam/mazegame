@@ -11,7 +11,7 @@ public interface IBoardProducer {
 
     /**
      * Creates a board to use by the game.
-     *@return
+     *@return a board
      */
     Board loadBoard();
 }
