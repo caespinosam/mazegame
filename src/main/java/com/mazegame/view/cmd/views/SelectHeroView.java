@@ -33,7 +33,6 @@ public class SelectHeroView implements ICommandLineView {
             currentGame.setPlayer(mainCharacter);
             PrintMessage.print(getMessage(SELECTED_HERO) + mainCharacter.getName());
             nextView = RoomView.newInstance();
-
         }
 
         return nextView;

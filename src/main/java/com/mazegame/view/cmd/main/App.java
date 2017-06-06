@@ -1,6 +1,9 @@
 package com.mazegame.view.cmd.main;
 
+import static com.mazegame.view.cmd.views.MessageBundle.*;
+
 import com.mazegame.core.model.game.Game;
+import com.mazegame.view.cmd.printer.PrintMessage;
 import com.mazegame.view.cmd.views.ICommandLineView;
 import com.mazegame.view.cmd.views.MainMenuView;
 
@@ -27,6 +30,7 @@ public class App {
         while (nextView != null) {
             nextView = nextView.show(game);
         }
+        PrintMessage.print(getMessage(BYE_MESSAGE));
 
     }
 

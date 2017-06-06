@@ -40,10 +40,11 @@ public class CreateHeroView implements ICommandLineView {
         newHero.setWeapon(weapon);
         try {
             game.savePlayer(newHero);
-            PrintMessage.print(getMessage(NO_HERO_CREATED) + newHero.getName());
+            PrintMessage.print(getMessage(NO_HERO_CREATED) + newHero.getName());           
         } catch (PlayerAlreadyExistException paee) {
             PrintMessage.print(paee.getMessage());
         }
+        PrintMessage.pressEnterToContinue();
 
     }
 

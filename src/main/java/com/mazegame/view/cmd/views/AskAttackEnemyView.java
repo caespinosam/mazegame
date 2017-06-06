@@ -25,8 +25,7 @@ public class AskAttackEnemyView implements ICommandLineView {
     public ICommandLineView show(Game currentGame) {
         Room currentRoom = currentGame.getCurrentState().getCurrentRoom();
         Enemy enemy = currentRoom.getEnemy();
-        Hero player = currentGame.getPlayer();
-
+      
         PrintMessage.print(getMessage(ROOM_WITH_ENEMY));
         PrintMessage.print(getMessage(ENEMY_NAME) + enemy.getName());
         PrintMessage.print(getMessage(ENEMY_ATTACK) + enemy.getAttackName());
@@ -55,12 +54,13 @@ public class AskAttackEnemyView implements ICommandLineView {
                 return RoomView.newInstance();
             }
 
-            if (player.isDead()) {
+            if (currentGame.isGameOver()) {
                 PrintMessage.print(getMessage(PLAYER_DIED));
+                PrintMessage.pressEnterToContinue();
                 return MainMenuView.newInstance();
             } else if (enemy.isDead()) {
-                PrintMessage.print(getMessage(ENEMY_DEFEATED));
-                // return manageRoom(currentGame, (Room)room);
+                PrintMessage.print(getMessage(ENEMY_DEFEATED));    
+                PrintMessage.pressEnterToContinue();
                 return RoomView.newInstance();
             }
 
@@ -91,7 +91,7 @@ public class AskAttackEnemyView implements ICommandLineView {
         PrintMessage.print(getMessage(PLAYER_WEAPON) + player.getWeapon());
         PrintMessage.print(getMessage(ENEMY_HP) + enemy.getCurretHP());
         PrintMessage.print("");
-
+        PrintMessage.pressEnterToContinue();
     }
 
     /**

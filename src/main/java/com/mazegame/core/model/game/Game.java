@@ -27,10 +27,12 @@ public class Game {
         
     }
     
-    private void init() {
-        Board board =  boardProducer.loadBoard();
-        currentState = new State();
-        currentState.setBoard(board);        
+  
+    /**
+     * Allows to generate a new state for a new game;
+     */
+    public void initState(){
+      init();
     }
 
     /**
@@ -67,6 +69,22 @@ public class Game {
     public void goPreviousRoom() {
         currentState.setCurrentRoom(currentState.getPreviousRoom());
     }
+    
+    /**
+     * Whether the player found the exit.
+     * @return
+     */
+    public boolean isFinished() {
+      return currentState.getGameState() == EGameState.FINISHED; 
+    }
+    
+    /**
+     * Whether the player died.
+     * @return
+     */
+    public boolean isGameOver() {
+      return currentState.getGameState() == EGameState.GAME_OVER; 
+    }
 
     /**
      * Creates a new hero.
@@ -85,6 +103,9 @@ public class Game {
      */
     public void fight(Hero hero, Enemy enemy) {
         fightManager.fight(hero, enemy);
+        if (hero.isDead()) {
+          currentState.setGameState(EGameState.GAME_OVER);
+        }
     }
 
     /**
@@ -124,9 +145,19 @@ public class Game {
      *@return
      */
     public static final Game newInstance() {
-        Game game = new Game();
-        game.init();
+        Game game = new Game();       
         return game;
     }
+    
+    /**
+     * Sets a board and starts the state.
+     */
+    private void init() {
+      Board board =  boardProducer.loadBoard();
+      currentState = new State();
+      currentState.setBoard(board);     
+      currentState.setGameState(EGameState.RUNNING);
+  }
+  
 
 }

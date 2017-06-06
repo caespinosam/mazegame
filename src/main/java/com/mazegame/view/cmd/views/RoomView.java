@@ -21,6 +21,16 @@ public class RoomView implements ICommandLineView {
         Room currentRoom = game.getCurrentState().getCurrentRoom();
         PrintMessage.print(getMessage(ROOM_NAME) + currentRoom.getName());
         PrintMessage.print(getMessage(ROOM_DESCRIPTION) + currentRoom.getDescription());
+        
+        if (game.isGameOver()) {
+          PrintMessage.print(getMessage(PLAYER_DIED));
+          PrintMessage.pressEnterToContinue();
+          return MainMenuView.newInstance();
+        } 
+        if (game.isFinished()) {          
+          return ExitView.newInstance();
+        } 
+        
         if (currentRoom.getEnemy() != null) {
             Enemy enemy = currentRoom.getEnemy();
             if (!enemy.isDead()) {
@@ -30,6 +40,7 @@ public class RoomView implements ICommandLineView {
             }
 
         }
+       
         return askDirection();
     }
 

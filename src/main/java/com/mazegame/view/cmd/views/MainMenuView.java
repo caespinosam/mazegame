@@ -20,7 +20,8 @@ public class MainMenuView implements ICommandLineView {
     }
 
     private ICommandLineView showHomeMenu(Game currentGame) {
-
+      	
+      	currentGame.initState();
         PrintMessage.print(getMessage(TITTLE_MAIN_MENU));
         Menu<ICommandLineView> homeMenu = new Menu<>(getMessage(MENU_SELECT_OPTION));
 
@@ -29,6 +30,9 @@ public class MainMenuView implements ICommandLineView {
 
         MenuOption<ICommandLineView> optionPlayNewG = new MenuOption<>("2", getMessage(MENU_PLAY_GAME), SelectHeroView.newInstance());
         homeMenu.addOption(optionPlayNewG);
+        
+        MenuOption<ICommandLineView> optionExit = new MenuOption<>("3", getMessage(MENU_EXIT), null);
+        homeMenu.addOption(optionExit);
 
         IInputHandler<MenuOption<ICommandLineView>> inputHandler = new MenuInputHandler<>(homeMenu);
         inputHandler.show();

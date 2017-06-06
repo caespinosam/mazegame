@@ -33,7 +33,11 @@ public class PlayerPersistorInMemory  implements IPlayerPersistor {
 
     @Override
     public Iterator<Hero> getPlayers() {
-        return availablePlayers.iterator();
+      List<Hero> heroes = new ArrayList<>();
+      for (Hero hero : availablePlayers) {
+    	heroes.add(hero.clone());
+      }
+        return heroes.iterator();
     }
 
     @Override

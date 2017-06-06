@@ -22,6 +22,8 @@ public class State {
     /** Coordinates of the current position in the grid/matrix. */
     private int currentPositionRow = 0;
     private int currentPositionColumn = 0;
+    /** Whether the game is running or finished.*/
+    private EGameState gameState = EGameState.NOT_STARTED;
 
     /**
      * Moves the current player one room to the north.
@@ -110,6 +112,9 @@ public class State {
                     previousRoom = currentRoom;
                     currentRoom = board.getRoom(i, j);
                     currentRoom.setVisited(true);
+                    if (currentRoom.isExit()) {
+                      gameState = EGameState.FINISHED;
+                    }
                     return;
                 }
             }
@@ -155,5 +160,17 @@ public class State {
     public Room getPreviousRoom() {
         return previousRoom;
     }
+
+	public EGameState getGameState()
+	{
+	  return gameState;
+	}
+
+	public void setGameState(EGameState gameState)
+	{
+	  this.gameState = gameState;
+	}
+    
+   
 
 }

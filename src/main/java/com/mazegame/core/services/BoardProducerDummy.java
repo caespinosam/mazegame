@@ -30,7 +30,7 @@ public class BoardProducerDummy implements IBoardProducer {
         exitRoom.setExit(true);
         gameBoard.addRoom(0, 0, exitRoom);
 
-        Enemy enemyGhost1 = Enemy.newInstance("Ghost 1", 20, new GhostAttackBehavior());
+        Enemy enemyGhost1 = Enemy.newInstance("Ghost 1", 40, new GhostAttackBehavior());
         Room ghost1Room = Room.newIntance("Death room", "A room with a ghost");
         ghost1Room.setEnemy(enemyGhost1);
         gameBoard.addRoom(0, 2, ghost1Room);
@@ -52,7 +52,7 @@ public class BoardProducerDummy implements IBoardProducer {
         Room empty4Room = Room.newIntance("Empty room", "Nothing here");
         gameBoard.addRoom(2, 0, empty4Room);
 
-        Enemy enemyZombie1 = Enemy.newInstance("Zombie 1", 50, new ZombieAttackBehavior());
+        Enemy enemyZombie1 = Enemy.newInstance("Zombie 1", 15, new ZombieAttackBehavior());
         Room zombie1Room = Room.newIntance("Zombie room", "A room with a zombie");
         zombie1Room.setEnemy(enemyZombie1);
         gameBoard.addRoom(2, 1, zombie1Room);

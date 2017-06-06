@@ -25,6 +25,7 @@ public final class MessageBundle
  public static final String NO_WEAPONS_IN_BAG = "no.weapons.in.bag";
  public static final String NO_HERO_CREATED = "no.hero.created";
  public static final String SELECTED_HERO = "selected.hero";
+ public static final String BYE_MESSAGE = "bye.message";
  
  public static final String PLAYER_DIED = "player.died";
  public static final String PLAYER_ATTACKED = "player.attacked";
@@ -66,11 +67,13 @@ public final class MessageBundle
  public static final String MENU_POISON = "menu.poison";
  public static final String MENU_CREATE_HERO = "menu.create.hero";
  public static final String MENU_PLAY_GAME = "menu.play.game";
+ public static final String MENU_EXIT = "menu.exit";
  
  public static final String TITTLE_CREATE_CHARACTER = "title.create.character";
  public static final String TITTLE_MAIN_MENU = "title.main.menu";
  public static final String TITTLE_ROOM = "title.room";
  public static final String TITTLE_SELECT_CHARACTER = "title.select.character";
+ public static final String TITTLE_EXIT_FOUND = "title.exit.found";
 
 /**
  * Returns the specified text stored in the message bundle file.
