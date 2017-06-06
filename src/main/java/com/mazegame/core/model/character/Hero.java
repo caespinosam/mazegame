@@ -84,6 +84,7 @@ public class Hero extends BaseCharacter {
      */
     public Hero clone() {
         Hero clone = new Hero(getName(), getCurretHP());
+        clone.setId(getId());
         if (this.weapon != null) {
             clone.setWeapon(this.weapon.copy());
         }
