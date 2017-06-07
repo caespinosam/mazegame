@@ -1,6 +1,7 @@
 package com.mazegame.view.cmd.views;
 
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_BOW;
+import static com.mazegame.view.cmd.views.MessageBundle.MENU_CHOOSE_WEAPON;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_ENTER_NAME;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_KNIFE;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_POISON;
@@ -66,7 +67,7 @@ public class CreateHeroView implements ICommandLineView {
 
   private IWeapon askWeapon(Game currentGame) {
 
-    Menu<IWeapon> weaponMenu = new Menu<>(getMessage(TITTLE_CREATE_CHARACTER));
+    Menu<IWeapon> weaponMenu = new Menu<>(getMessage(MENU_CHOOSE_WEAPON));
     MenuOption<IWeapon> opKnife = new MenuOption<>("1", getMessage(MENU_KNIFE),
         Knife.newInstance("My Knife"));
     weaponMenu.addOption(opKnife);

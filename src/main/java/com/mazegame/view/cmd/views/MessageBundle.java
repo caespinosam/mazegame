@@ -82,6 +82,8 @@ public final class MessageBundle {
   public static final String TITTLE_EXIT_FOUND = "title.exit.found";
   public static final String TITTLE_SAVE_GAME = "title.save.game";
   public static final String TITTLE_RESUME_GAME = "title.resume.game";
+  public static final String TITTLE_GAME = "title.game";
+  public static final String TITTLE_GAME_DESCRIPTION = "title.game.description";
 
   /**
    * Returns the specified text stored in the message bundle file.

@@ -6,6 +6,8 @@ import static com.mazegame.view.cmd.views.MessageBundle.MENU_PLAY_GAME;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_RESUME_GAME;
 import static com.mazegame.view.cmd.views.MessageBundle.MENU_SELECT_OPTION;
 import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_MAIN_MENU;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_GAME;
+import static com.mazegame.view.cmd.views.MessageBundle.TITTLE_GAME_DESCRIPTION;
 import static com.mazegame.view.cmd.views.MessageBundle.getMessage;
 
 import com.mazegame.core.game.Game;
@@ -30,6 +32,13 @@ public class MainMenuView implements ICommandLineView {
   private ICommandLineView showHomeMenu(Game currentGame) {
 
     currentGame.initState();
+    
+    PrintMessage.print("");
+    PrintMessage.print("");
+    PrintMessage.print(getMessage(TITTLE_GAME));
+    PrintMessage.print(getMessage(TITTLE_GAME_DESCRIPTION));
+    PrintMessage.print("");
+    
     PrintMessage.print(getMessage(TITTLE_MAIN_MENU));
     Menu<ICommandLineView> homeMenu = new Menu<>(getMessage(MENU_SELECT_OPTION));
 

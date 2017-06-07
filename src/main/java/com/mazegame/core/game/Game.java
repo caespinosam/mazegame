@@ -187,11 +187,21 @@ public class Game {
   
   /**
    * Sets a new board producer. 
-   * @param boardProducer the new board producer.
+   * @param boardProducer a new board producer.
    */
   public void setBoardProducer(IBoardProducer boardProducer)
   {
     this.boardProducer = boardProducer;
+  }
+  
+  
+  /**
+   * Sets a new fight algorithm. 
+   * @param boardProducer  a new fight algorithm. 
+   */
+  public void setFightManager(IFightManager fightManager)
+  {
+    this.fightManager = fightManager;
   }
 
   /**
