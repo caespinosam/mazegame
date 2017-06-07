@@ -24,10 +24,10 @@ import com.mazegame.core.services.StateMementoCareTakerInMemory;
  */
 public class Game {
 
-  private final IPlayerPersistor playerPersistor = PlayerPersistorInMemory.getInstance();
-  private final IFightManager fightManager = FightManagerDummy.getInstance();
-  private final IBoardProducer boardProducer = BoardProducerDummy.getInstance();
-  private final IStateMementoCareTaker stateMementoCareTaker = StateMementoCareTakerInMemory
+  private IPlayerPersistor playerPersistor = PlayerPersistorInMemory.getInstance();
+  private IFightManager fightManager = FightManagerDummy.getInstance();
+  private IBoardProducer boardProducer = BoardProducerDummy.getInstance();
+  private IStateMementoCareTaker stateMementoCareTaker = StateMementoCareTakerInMemory
       .getInstance();
 
   /**
@@ -182,6 +182,16 @@ public class Game {
    */
   public Iterator<Hero> getCreatedPlayers() {
     return playerPersistor.getPlayers();
+  }
+  
+  
+  /**
+   * Sets a new board producer. 
+   * @param boardProducer the new board producer.
+   */
+  public void setBoardProducer(IBoardProducer boardProducer)
+  {
+    this.boardProducer = boardProducer;
   }
 
   /**

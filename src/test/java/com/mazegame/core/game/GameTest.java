@@ -19,6 +19,7 @@ import com.mazegame.core.model.character.ZombieAttackBehavior;
 import com.mazegame.core.model.weapon.Bow;
 import com.mazegame.core.model.weapon.Knife;
 import com.mazegame.core.model.weapon.Poison;
+import com.mazegame.core.services.BoardProducerDummy;
 
 /**
  * Unit test for the main use cases.
@@ -32,6 +33,7 @@ public class GameTest {
 
   @Before
   public void cleanState() {
+	game.setBoardProducer(BoardProducerDummy.getInstance());
     game.initState();
   }
 
