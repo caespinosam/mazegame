@@ -68,3 +68,6 @@ com.mazegame.view.*: contains the logic to interact with the user (command line 
  myStrategy.print();
  
 ```
+
+* Change default messages and labels: add your own src/main/resources/messages.properties file.
+
