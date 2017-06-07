@@ -4,11 +4,11 @@ A simple maze game with a collection of paths  where you (a.k.a the hero) must f
 
 The game is a Maven-based Java project  that was build for the command line, but it could be easily  extended to use a GUI since the core is  loosely coupled to the view layer. 
 
-#Prerequisites
-
+## Prerequisites
+```
 Java 8
 Maven >= 3.3
-
+```
 ## Run it
 
 ```
