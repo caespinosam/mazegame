@@ -4,7 +4,10 @@ A simple maze game with a collection of paths  where you (a.k.a the hero) must f
 
 The game is a Maven-based Java project  that was build for the command line, but it could be easily  extended to use a GUI since the core is  loosely coupled to the view layer. 
 
-##Prerequisites
+#Prerequisites
+
+Java 8
+Maven >= 3.3
 
 ## Run it
 
@@ -55,5 +58,13 @@ com.mazegame.view.*: contains the logic to interact with the user (command line 
  Game game = Game.newInstance();
  game.setFightManager(MyFightManager.getInstance());
  game.initState(); 
+ 
+```
+
+* Add a new way to print the map: implement the interface IPrinterMapStrategy.
+```
+ Game game = Game.newInstance();
+ IPrinterMapStrategy myStrategy = new PrinterMapSimpleTableStrategy(game.getCurrentState());
+ myStrategy.print();
  
 ```
